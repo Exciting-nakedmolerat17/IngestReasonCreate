@@ -1,0 +1,16 @@
+flowchart TD
+    A["quarterly-service-review.pdf<br/>6 pages, 1 scanned appendix"]
+    B["Local extraction<br/>layout-aware parser + OCR"]
+    C["extracted-source.md<br/>locators + uncertainty map"]
+    D["Reasoning<br/>facts / calculations / inference"]
+    E["report.md<br/>evidence classes separated"]
+    F["Verification<br/>recompute + reconcile + reopen"]
+    G["Conflict reported<br/>narrative -12% vs table -4.7%"]
+
+    A -->|"never leaves the machine"| B
+    B --> C
+    C -->|"clean Markdown only"| D
+    D --> E
+    E --> F
+    F --> G
+    F -.->|"unreadable appendix excluded"| E

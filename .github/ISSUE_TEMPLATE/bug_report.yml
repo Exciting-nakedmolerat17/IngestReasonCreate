@@ -1,0 +1,55 @@
+name: Bug report
+description: Something in this repository behaves incorrectly
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before filing: please do not paste a real document, extract, screenshot,
+        credential, machine path, or host inventory into this issue. Reproduce
+        the problem with invented data instead. If a report would necessarily
+        contain sensitive detail, use private vulnerability reporting instead.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you expected, and what you got instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: How to reproduce
+      description: The exact commands, using synthetic data only.
+      render: shell
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: The contents of the VERSION file, or the tag you checked out.
+      placeholder: "5.5.0"
+    validations:
+      required: true
+
+  - type: input
+    id: platform
+    attributes:
+      label: Operating system and Python version
+      description: Output of `python -VV`, plus your OS.
+      placeholder: "Windows 11, Python 3.13.1"
+    validations:
+      required: true
+
+  - type: textarea
+    id: output
+    attributes:
+      label: Check output
+      description: Output of the failing command, with any private detail removed.
+      render: shell
+    validations:
+      required: false

@@ -1,0 +1,15 @@
+version: 2
+
+updates:
+  # Workflow actions are pinned to commit SHAs so a moving tag cannot change
+  # what runs. Pinning only stays safe if something re-opens the pins, so
+  # Dependabot proposes the bumps and CI proves them.
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: "ci"
+    labels:
+      - dependencies
+    open-pull-requests-limit: 5
