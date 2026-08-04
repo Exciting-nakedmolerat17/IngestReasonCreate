@@ -1,5 +1,32 @@
 # Changelog
 
+## 5.6.0 - 2026-08-04
+
+Presentation and disclosure release. No change to the operating policy.
+
+### Added
+
+- Live repository-validation and release-gate badges, and a clone command that
+  runs as written. The owner handle these contain is public by construction:
+  it already appears in the address bar, the clone URL, and the owner line of
+  every page, so linking to them discloses nothing the page does not. This is
+  deliberately separate from the personal contact address that the checks have
+  always rejected and still reject.
+- A README section stating plainly that nothing installs itself, that the
+  verification commands only read files in the folder, and that the setup
+  prompt inventories, reuses, records a restore point, and tests its rollback
+  before changing a machine. This was the loudest unspoken question and it was
+  answered only in the setup prompt.
+- An honest note on longevity: with no dependency to rot and no service to shut
+  down, abandonment would leave a readable, runnable checklist.
+
+### Changed
+
+- Restored the first-person account of why the project exists. It describes how
+  the tools are used, not who uses them.
+- The required status check is bound to the continuous-integration application
+  rather than accepting any producer of a check with that name.
+
 ## 5.5.0 - 2026-08-04
 
 Documentation and robustness release. No change to the operating policy itself.

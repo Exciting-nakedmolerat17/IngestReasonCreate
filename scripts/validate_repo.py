@@ -95,13 +95,17 @@ FORBIDDEN_PLATFORM_TERMS = re.compile(
     r"\b(?:Claude|ChatGPT|Codex|Cursor|Copilot|Gemini|OneDrive|Dropbox|iCloud|SharePoint|Google Drive)\b",
     re.IGNORECASE,
 )
-# The owner is already visible in the hosting URL, but publishing it again in
-# source files creates an unnecessary account breadcrumb. Documentation should
-# use relative links or a repository-URL placeholder instead.
+# The owner is already visible in the hosting URL, but repeating it across
+# source files spreads an account breadcrumb for no benefit. Every file must use
+# relative links -- except the landing page, which needs live status badges and
+# a clone command that runs as written, and which cannot get either from a
+# relative URL (the host rewrites relative image paths to /raw/ and they 404).
+# That single, reviewed exception is listed in SELF_LINK_ALLOWED.
 SELF_REPOSITORY_LINK = re.compile(
     r"https?://github\.com/[^/\s)]+/IngestReasonCreate(?:\.git|/|\b)",
     re.IGNORECASE,
 )
+SELF_LINK_ALLOWED = {"README.md"}
 FORBIDDEN_NAMES = {"AGENTS.md", "CLAUDE.md", "agent.md", ".mcp.json", "reference.docx"}
 FORBIDDEN_PARTS = {
     ".agents",
@@ -189,6 +193,11 @@ ALLOWED_EXTERNAL_HOSTS = {
     "www.python.org",
 }
 ALLOWED_GITHUB_PATH_PREFIXES = (
+    # This project's own hosted pages. The owner handle is public by
+    # construction: it is in the address bar, the clone URL, and the owner line
+    # of every page. Linking to it exposes nothing that the page does not.
+    "/shinmingh/ingestreasoncreate",
+    # Upstream tools that publish no documentation site of their own.
     "/microsoft/markitdown",
     "/opendatalab/mineru",
 )
@@ -307,7 +316,7 @@ def main() -> int:
         if rel not in PATTERN_DEFINITION_FILES:
             if FORBIDDEN_PLATFORM_TERMS.search(content):
                 errors.append(f"platform or shared-drive reference found: {rel}")
-            if SELF_REPOSITORY_LINK.search(content):
+            if rel not in SELF_LINK_ALLOWED and SELF_REPOSITORY_LINK.search(content):
                 errors.append(f"hardcoded repository-owner link found: {rel}")
             for line in content.splitlines():
                 if IMPOSSIBLE_CLAIM.search(line) and not CLAIM_NEGATION.search(line):

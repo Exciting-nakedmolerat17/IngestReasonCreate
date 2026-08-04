@@ -2,6 +2,8 @@
 
 **Your AI agent will summarise a document confidently and get the number wrong. This makes it check.**
 
+[![Repository validation](https://github.com/shinmingh/IngestReasonCreate/actions/workflows/ci.yml/badge.svg)](https://github.com/shinmingh/IngestReasonCreate/actions/workflows/ci.yml)
+[![Release gate](https://github.com/shinmingh/IngestReasonCreate/actions/workflows/release-gate.yml/badge.svg)](https://github.com/shinmingh/IngestReasonCreate/actions/workflows/release-gate.yml)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 [![Runtime dependencies](https://img.shields.io/badge/runtime%20dependencies-none-brightgreen)](CONTRIBUTING.md)
 [![Text only](https://img.shields.io/badge/contents-43%20text%20files%20%C2%B7%20zero%20binaries-informational)](#a-new-repository-with-no-stars)
@@ -38,10 +40,10 @@ flowchart LR
     style V fill:#cfe0d8,stroke:#5b8e7d,color:#1f2933
 ```
 
-## Why this exists
+## Why we built this
 
-Document-to-report workflows tend to fail in the same four ways, and none of
-them requires a new engine to fix:
+We use AI agents for real document work every day, and the same four failures
+kept coming back. None of them needed a new engine to fix:
 
 | What went wrong | Why it happens |
 |---|---|
@@ -51,23 +53,19 @@ them requires a new engine to fix:
 | A confidential draft went to a cloud parser because that was the default | Convenience beat policy, because no policy had been written down |
 
 Every one of these is an **operating policy** problem: what to run, in what
-order, and what to check before calling it done. This repository writes that
-policy down, makes it enforceable, and keeps it in one folder that can be handed
-to a teammate.
+order, and what to check before calling it done. So we wrote the policy down,
+made it enforceable, and put it in one folder we could hand to a teammate.
 
 That folder is this repository.
 
 ## Try it in two minutes
 
 ```bash
-git clone PASTE_THE_REPOSITORY_URL_HERE IngestReasonCreate
+git clone https://github.com/shinmingh/IngestReasonCreate.git
 cd IngestReasonCreate
 python scripts/validate_repo.py
 python scripts/smoke_test.py
 ```
-
-Copy the HTTPS URL from the repository's **Code** menu and replace
-`PASTE_THE_REPOSITORY_URL_HERE` before running the first command.
 
 Both should print `PASSED`. That is the entire dependency list: **Python 3.9 or
 newer, and nothing else.** No pip install, no lockfile, no network call. If
@@ -97,6 +95,17 @@ projects with far more users and far more scrutiny than this one will ever have.
 What you are adopting is a checklist that tells your agent which of them to
 reach for and what to verify afterwards. If you distrust this repository, you
 are distrusting a checklist, not a parser.
+
+**It will not install anything behind your back.** This is the fear that matters
+most when a repository hands instructions to an agent, so it is worth being
+precise. Nothing here installs itself, and the two verification commands above
+only read files inside the folder. When you do reach the setup prompt, it makes
+the agent inventory what is already on the machine before changing anything,
+reuse healthy installations instead of replacing them, record a restore point
+scoped to that run, and test the rollback. Heavyweight OCR and acceleration
+components are an explicit human decision, never a default. You can read the
+whole policy in [BOOTSTRAP_PROMPT.md](BOOTSTRAP_PROMPT.md) before you run it,
+and you should.
 
 **It is small enough to audit before you run it.** 43 text files, under 100 KB,
 433 lines of Python importing nothing outside the standard library, and 250
@@ -164,8 +173,8 @@ push — offline, in your clone, not only on the hosting platform.
 check suite on **six operating-system and Python combinations** — Linux on 3.9,
 3.11, and 3.13, Windows on 3.9 and 3.13, and macOS on 3.13 — for every push and
 every pull request. `main` is protected: no direct pushes, no force pushes,
-review and a passing check required. The complete logs are available in the
-repository's Actions view.
+review and a passing check required. Click either badge at the top of this page to read the
+complete logs.
 
 ## See it actually work
 
@@ -246,13 +255,19 @@ every push and every pull request.
 
 ## Status
 
-Version 5.5.0. The repository validates its own text-only and privacy boundaries
+Version 5.6.0. The repository validates its own text-only and privacy boundaries
 on every push, on Linux, macOS, and Windows, against Python 3.9 through 3.13.
 
 That covers *this repository*. It says nothing about the tools on your machine —
 a computer is not ready until its own selected tools pass their own fixtures,
 which is exactly what [BOOTSTRAP_PROMPT.md](BOOTSTRAP_PROMPT.md) makes the agent
 prove.
+
+This is a young public project, and it is small on purpose. That is also the
+answer to the obvious question about longevity: there is no dependency here to
+rot and no service to shut down. If it were abandoned tomorrow, what you would
+have is a checklist that stops being updated — still readable, still runnable,
+still yours under a permissive licence.
 
 Issues and pull requests are welcome; see [CONTRIBUTING.md](CONTRIBUTING.md) and
 [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md). Security reports go through private
